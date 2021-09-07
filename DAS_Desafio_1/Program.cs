@@ -16,7 +16,12 @@ namespace DAS_Desafio_1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Splahs splahs = new Splahs();
+            if (splahs.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
         }
     }
 }
