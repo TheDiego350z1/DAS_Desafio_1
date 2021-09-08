@@ -22,24 +22,39 @@ namespace DAS_Desafio_1
 
         //Definimos variable de acesos
         int type = 0; //1 peliculas, 2 Libros, 3 Lenguajes de programación
+        int intentos = 0; // intentos
 
         private void btnEntrar_Login_Click(object sender, EventArgs e)
         {
-            int intentos = 0;
+            
             string name = txtName_Login.Text;
             string pass = txtPass_Login.Text;
 
             int nameElement = Array.IndexOf(users, name);
             int passElement = Array.IndexOf(password, pass);
 
-            if (nameElement == -1)
+            if (intentos == 3)
+            {
+                MessageBox.Show("Ha llegado al número de intentos maximos");
+                Application.Exit();
+            }
+            else if (nameElement == -1)
             {
                 MessageBox.Show("Usuario Incorrecto");
-                intentos += 1;
+
+                MessageBox.Show("Intentos: " + intentos);
+                intentos++;
+                txtName_Login.Clear();
+                txtPass_Login.Clear();
             }
             else if(passElement == -1)
-            {
+            {   
                 MessageBox.Show("Contraseña Incorrecta");
+                MessageBox.Show("Intentos: " + intentos);
+                intentos++;
+                txtName_Login.Clear();
+                txtPass_Login.Clear();
+                
             }
             else if (name == users[nameElement] && pass == password[passElement])
             {
