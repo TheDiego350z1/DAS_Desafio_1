@@ -20,7 +20,7 @@ namespace DAS_Desafio_1
             Splahs splahs = new Splahs();
             if (splahs.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new Form1());
+                Application.Run(new Login());
             }
         }
     }
