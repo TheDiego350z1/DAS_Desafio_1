@@ -24,7 +24,7 @@ namespace DAS_Desafio_1
         {
             contador += 1;
 
-            label1.Text = "Iniciando el sistema " + contador + " %";
+            label1.Text = contador + " %";
 
             progressBar1.Increment(1);
             if(progressBar1.Value == 100)

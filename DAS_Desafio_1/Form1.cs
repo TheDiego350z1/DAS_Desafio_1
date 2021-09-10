@@ -17,16 +17,19 @@ namespace DAS_Desafio_1
             InitializeComponent();
         }
 
+        
+
         string[] users = { "Diego", "Antonio" };
         string[] password =  { "123", "321" };
 
         //Definimos variable de acesos
-        int type = 0; //1 peliculas, 2 Libros, 3 Lenguajes de programación
+        //string type; //1 peliculas, 2 Libros, 3 Lenguajes de programación
         int intentos = 0; // intentos
+
+        string datos;
 
         private void btnEntrar_Login_Click(object sender, EventArgs e)
         {
-            
             string name = txtName_Login.Text;
             string pass = txtPass_Login.Text;
 
@@ -41,7 +44,6 @@ namespace DAS_Desafio_1
             else if (nameElement == -1)
             {
                 MessageBox.Show("Usuario Incorrecto");
-
                 MessageBox.Show("Intentos: " + intentos);
                 intentos++;
                 txtName_Login.Clear();
@@ -54,14 +56,16 @@ namespace DAS_Desafio_1
                 intentos++;
                 txtName_Login.Clear();
                 txtPass_Login.Clear();
-                
             }
             else if (name == users[nameElement] && pass == password[passElement])
             {
                 this.Hide(); //Ocultamos la ventana de login
+                //Logica para mostrar las ventanas
+
+
                 Dentro dentro = new Dentro();  //Instaciamos la ventana de "Dentro"
                 dentro.Show(); //Mostramos la nueva ventana
-                type = 1;
+                
             }
             else
             {
@@ -69,6 +73,13 @@ namespace DAS_Desafio_1
                 Application.Exit();
             }
 
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("El sistema se cerrara");
+            Application.Exit();
         }
     }
 }

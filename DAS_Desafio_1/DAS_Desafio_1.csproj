@@ -66,6 +66,7 @@
     <Compile Include="Splahs.Designer.cs">
       <DependentUpon>Splahs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs" />
     <EmbeddedResource Include="Dentro.resx">
       <DependentUpon>Dentro.cs</DependentUpon>
     </EmbeddedResource>

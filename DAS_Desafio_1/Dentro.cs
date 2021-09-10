@@ -17,9 +17,11 @@ namespace DAS_Desafio_1
             InitializeComponent();
         }
 
+        public string Datos;
         private void Dentro_Load(object sender, EventArgs e)
         {
-
+            
         }
+
     }
 }
