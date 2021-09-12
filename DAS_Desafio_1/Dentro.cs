@@ -17,11 +17,30 @@ namespace DAS_Desafio_1
             InitializeComponent();
         }
 
-        public string Datos;
         private void Dentro_Load(object sender, EventArgs e)
         {
             
         }
 
+        private void textVar_Dentro_TextChanged(object sender, EventArgs e)
+        {
+            textVar_Dentro.Show();
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string number;
+            number = textVar_Dentro.Text;
+
+            MessageBox.Show(number);
+            label1.Text = number;
+        }
     }
 }

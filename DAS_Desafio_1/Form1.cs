@@ -17,21 +17,24 @@ namespace DAS_Desafio_1
             InitializeComponent();
         }
 
-        
 
-        string[] users = { "Diego", "Antonio" };
-        string[] password =  { "123", "321" };
 
-        //Definimos variable de acesos
-        //string type; //1 peliculas, 2 Libros, 3 Lenguajes de programación
+        string[] users = { "Diego", "Antonio", "Immer" };
+        string[] password = { "123", "321", "abc" };
+
+        public Dictionary<string, int> userkey = new Dictionary<string, int>();
+
         int intentos = 0; // intentos
-
-        string datos;
 
         private void btnEntrar_Login_Click(object sender, EventArgs e)
         {
+            userkey.Add("Diego", 0);
+            userkey.Add("Antonio", 1);
+            userkey.Add("Imer", 2);
+
             string name = txtName_Login.Text;
             string pass = txtPass_Login.Text;
+            int key = userkey[name];
 
             int nameElement = Array.IndexOf(users, name);
             int passElement = Array.IndexOf(password, pass);
@@ -57,15 +60,23 @@ namespace DAS_Desafio_1
                 txtName_Login.Clear();
                 txtPass_Login.Clear();
             }
-            else if (name == users[nameElement] && pass == password[passElement])
+            else if (users[nameElement] == name  && password[passElement] == pass)
             {
-                this.Hide(); //Ocultamos la ventana de login
-                //Logica para mostrar las ventanas
-
-
-                Dentro dentro = new Dentro();  //Instaciamos la ventana de "Dentro"
-                dentro.Show(); //Mostramos la nueva ventana
-                
+                if(nameElement == passElement)
+                {
+                    MessageBox.Show("Usuario correcto");
+                    this.Hide(); //Ocultamos la ventana de login
+                    Dentro dentro = new Dentro();  //Instaciamos la ventana de "Dentro"
+                    dentro.Show(); //Mostramos la nueva ventana
+                    dentro.textVar_Dentro.Text = key.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Error: ingresar los datos correctos");
+                    intentos++;
+                    txtName_Login.Clear();
+                    txtPass_Login.Clear();
+                }
             }
             else
             {
