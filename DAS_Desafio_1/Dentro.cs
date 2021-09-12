@@ -24,7 +24,7 @@ namespace DAS_Desafio_1
 
         private void textVar_Dentro_TextChanged(object sender, EventArgs e)
         {
-            textVar_Dentro.Show();
+            textVar_Dentro.Hide();
             
         }
 
@@ -36,11 +36,24 @@ namespace DAS_Desafio_1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string number;
-            number = textVar_Dentro.Text;
+            
+            int number;
+            number = Int32.Parse( textVar_Dentro.Text);
+            MessageBox.Show(number.ToString()) ;
 
-            MessageBox.Show(number);
-            label1.Text = number;
+            if (number == 0)
+            {
+                MessageBox.Show("Soy el 1");
+            }
+            else if (number == 2 )
+            {
+                MessageBox.Show("Soy el 2");
+            }
+            else if (number == 3)
+            {
+                MessageBox.Show("Soy el 3");
+            }
+            button1.Hide();
         }
     }
 }
