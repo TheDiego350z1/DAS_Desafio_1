@@ -19,8 +19,8 @@ namespace DAS_Desafio_1
 
 
 
-        string[] users = { "Diego", "Antonio", "Immer" };
-        string[] password = { "123", "321", "abc" };
+        string[] users = { "Diego", "Antonio", "Imer", "Juan", "Javier" };
+        string[] password = { "123", "321", "abc", "ggg", "hhh" };
 
         public Dictionary<string, int> userkey = new Dictionary<string, int>();
 
@@ -31,6 +31,8 @@ namespace DAS_Desafio_1
             userkey.Add("Diego", 0);
             userkey.Add("Antonio", 1);
             userkey.Add("Imer", 2);
+            userkey.Add("Juan", 0);
+            userkey.Add("Javier", 2);
 
             string name = txtName_Login.Text;
             string pass = txtPass_Login.Text;
@@ -52,23 +54,23 @@ namespace DAS_Desafio_1
                 txtName_Login.Clear();
                 txtPass_Login.Clear();
             }
-            else if(passElement == -1)
-            {   
+            else if (passElement == -1)
+            {
                 MessageBox.Show("Contraseña Incorrecta");
                 MessageBox.Show("Intentos: " + intentos);
                 intentos++;
                 txtName_Login.Clear();
                 txtPass_Login.Clear();
             }
-            else if (users[nameElement] == name  && password[passElement] == pass)
+            else if (users[nameElement] == name && password[passElement] == pass)
             {
-                if(nameElement == passElement)
+                if (nameElement == passElement)
                 {
                     MessageBox.Show("Usuario correcto");
                     this.Hide(); //Ocultamos la ventana de login
                     Dentro dentro = new Dentro();  //Instaciamos la ventana de "Dentro"
                     dentro.Show(); //Mostramos la nueva ventana
-                    dentro.textVar_Dentro.Text = key.ToString();
+                    dentro.txtvat_dentro.Text = key.ToString();
                 }
                 else
                 {
@@ -84,13 +86,18 @@ namespace DAS_Desafio_1
                 Application.Exit();
             }
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("El sistema se cerrara");
             Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
